@@ -1,0 +1,45 @@
+.tertiary-button {
+  height: 24px;
+  width: 130px;
+  text-align: left;
+}
+
+.tertiary-button .CTA {
+  align-items: center;
+  display: inline-flex;
+  gap: 8px;
+  position: relative;
+}
+
+.tertiary-button .explore {
+  color: var(--variable-collection-satori-gold);
+  font-family: "Montserrat-Regular", Helvetica;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 24px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.tertiary-button .text-wrapper {
+  color: var(--variable-collection-satori-gold);
+  font-family: "Montserrat-Regular", Helvetica;
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 24px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.tertiary-button .hover {
+  font-size: 18px;
+}
+
+.tertiary-button .default {
+  font-size: 32px;
+}

@@ -2,7 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body {
+@layer base {
+  :root {
+    --variable-collection-light-grey: rgba(226, 226, 226, 1);
+    --variable-collection-white: rgba(255, 255, 255, 1);
+  }
+}
+
+html,
+body {
   scroll-behavior: smooth;
   background-color: #000;
   color: white;
