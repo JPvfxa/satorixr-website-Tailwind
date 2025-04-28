@@ -1,0 +1,14 @@
+/* ImageSequence.css */
+.image-sequence-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+.car-image {
+  width: 100%;
+  height: auto;
+  transition: opacity 0.3s ease-in-out;
+}

@@ -18,19 +18,37 @@ const HeroSection = () => {
     const ctx = gsap.context(() => {
       gsap.fromTo(".fade-in", { opacity: 0 }, { opacity: 1, duration: 1.5 });
 
-      const words = gsap.utils.toArray(loopRef.current.children);
-      const wordHeight = loopRef.current.offsetHeight / words.length;
+      const words = ["EDUCATION", "TRAINING", "SALES"];
+      let wordIndex = 1;
 
-      // Slowing down the animation by adjusting the duration
-      gsap.to(loopRef.current, {
-        y: `-=${wordHeight * words.length}`,
-        duration: words.length * 2, // Increased duration to make it slower
-        ease: "none",
-        repeat: -1, // Looping infinitely
-        modifiers: {
-          y: gsap.utils.unitize((y) => parseFloat(y) % (wordHeight * words.length)), // Ensuring continuous loop
-        },
-      });
+      const showNextWord = () => {
+        gsap.to(loopRef.current, {
+          y: 40,
+          opacity: 0,
+          duration: 0.5,
+          ease: "power2.in",
+          onComplete: () => {
+            loopRef.current.innerText = words[wordIndex];
+            wordIndex = (wordIndex + 1) % words.length;
+
+            gsap.fromTo(
+              loopRef.current,
+              { y: -40, opacity: 0 },
+              {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                ease: "power2.out",
+                onComplete: () => {
+                  gsap.delayedCall(1.5, showNextWord);
+                },
+              }
+            );
+          },
+        });
+      };
+
+      gsap.delayedCall(2, showNextWord);
     }, heroRef);
 
     return () => ctx.revert();
@@ -79,17 +97,13 @@ const HeroSection = () => {
           EMPOWERING
         </h1>
 
-        {/* Animated Word Loop */}
+        {/* Animated Word */}
         <div className="h-[48px] md:h-[72px] lg:h-[90px] overflow-hidden relative mb-6">
-          <div ref={loopRef} className="flex flex-col items-center">
-            {["EDUCATION", "TRAINING", "SALES"].map((word, i) => (
-              <div
-                key={i}
-                className="h-[48px] md:h-[72px] lg:h-[90px] flex items-center justify-center text-4xl md:text-6xl lg:text-7xl font-normal font-['Montserrat'] text-[#E0CC54]"
-              >
-                {word}
-              </div>
-            ))}
+          <div
+            ref={loopRef}
+            className="h-full flex items-center justify-center text-4xl md:text-6xl lg:text-7xl font-normal font-['Montserrat'] text-[#E0CC54]"
+          >
+            EDUCATION
           </div>
         </div>
 

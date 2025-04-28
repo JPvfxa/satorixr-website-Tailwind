@@ -5,17 +5,26 @@ import HeroBanner from "./components/HeroBanner";
 import AboutPage from "./pages/about";
 import SalesDemo from "./components/SalesDemo";
 import Platform from "./components/Platform";
-import PlatformSolutions from "./components/PlatformSolutions";
+import { PSolutions } from "./components/psolutions";
+import { RequestADemo } from "./components/RequestADemo";
+import TrustedPartners from "./components/trustedpartners";
+import Footer from "./components/footer/footer";
+import { ImageOff } from "lucide-react";
+import Capabilities from "./pages/capabilities";
+import Industries from "./pages/Industries/industries";
+import Salesxrtreme from "./pages/Solutions/salesxrtreme";
+//import Engagexrtreme from "./pages/Solutions/engagexrtreme";
+//import Industrialmetaverse from "./pages/Solutions/industrialmetaverse";
 
 const HomePage = () => (
   <>
     <HeroBanner />
     <SalesDemo />
     <Platform />
-    <PlatformSolutions />
-    <section className="h-screen bg-gray-800 flex items-center justify-center text-white">
-      <p className="text-xl font-[Montserrat]">Start building your sections here</p>
-    </section>
+    <PSolutions />
+    <RequestADemo />
+    <TrustedPartners />
+    <Footer />
   </>
 );
 
@@ -26,6 +35,9 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/capabilities" element={<Capabilities />} />
+        <Route path="/industries" element={<Industries />} />
+        <Route path="/Solutions" element={<Salesxrtreme />} />
       </Routes>
     </div>
   );
